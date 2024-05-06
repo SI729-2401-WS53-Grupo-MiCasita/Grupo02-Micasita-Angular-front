@@ -1,0 +1,214 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "name": "Jason Bourne",
+      "email": "jason@example.com",
+      "password": "securepass"
+    },
+    {
+      "id": "3",
+      "name": "William Norton",
+      "email": "william@example.com",
+      "password": "strongpassword"
+    },
+    {
+      "id": "4",
+      "name": "Jose",
+      "email": "hola@example.com",
+      "password": "1234"
+    },
+    {
+      "id": "d658",
+      "name": "aasa",
+      "email": "qasa@sasa",
+      "password": "qqwq"
+    },
+    {
+      "id": "ce72",
+      "name": "asas",
+      "email": "sasa@sasa",
+      "password": "sasa"
+    },
+    {
+      "id": "8508",
+      "name": "hola",
+      "email": "123@123",
+      "password": "123"
+    },
+    {
+      "id": "f858",
+      "name": "assd",
+      "email": "sdas@dsads",
+      "password": "121312"
+    },
+    {
+      "id": "01ff",
+      "name": "hola",
+      "email": "12121@212",
+      "password": "1212"
+    },
+    {
+      "id": "501f",
+      "name": "hola",
+      "email": "1212@w121",
+      "password": "1212"
+    },
+    {
+      "id": "d2d0",
+      "name": "212121",
+      "email": "21212@sasa",
+      "password": "2121"
+    },
+    {
+      "id": "7c5f",
+      "name": "w12121",
+      "email": "2121@sasas",
+      "password": "1212"
+    },
+    {
+      "id": "b97f",
+      "name": "hola",
+      "email": "1212@upc.com",
+      "password": "1213"
+    }
+  ],
+  "estates": [
+    {
+      "id": "1",
+      "title": "Departamento en Miraflores",
+      "owner": "Juan Perez",
+      "sale_or_rent": "Sale",
+      "district": "Miraflores",
+      "year": "2020",
+      "description": "Beautiful apartment with ocean view",
+      "price": "$500,000",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/27/03/98/1200x1200/1454116052.jpg?isFirstImage=true"
+    },
+    {
+      "id": "2",
+      "title": "Departamento en San Isidro",
+      "owner": "Maria Lopez",
+      "sale_or_rent": "Rent",
+      "district": "San Isidro",
+      "year": "2019",
+      "description": "Cozy apartment near the financial district",
+      "price": "$1,200",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/13/34/37/1200x1200/1450584017.jpg?isFirstImage=true"
+    },
+    {
+      "id": "3",
+      "title": "Casa en Surco",
+      "owner": "Pedro Ramirez",
+      "sale_or_rent": "Sale",
+      "district": "Surco",
+      "year": "2018",
+      "description": "Spacious house with a garden",
+      "price": "$750,000",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/08/25/63/1200x1200/1449110118.jpg?isFirstImage=true"
+    },
+    {
+      "id": "4",
+      "title": "Departamento en Barranco",
+      "owner": "Ana Torres",
+      "sale_or_rent": "Rent",
+      "district": "Barranco",
+      "year": "2021",
+      "description": "Modern apartment near the art galleries",
+      "price": "$1,500",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/01/01/95/1200x1200/1447297156.jpg?isFirstImage=true"
+    },
+    {
+      "id": "5",
+      "title": "Casa en San Borja",
+      "owner": "Luisa Fernandez",
+      "sale_or_rent": "Sale",
+      "district": "San Borja",
+      "year": "2017",
+      "description": "Traditional house with a swimming pool",
+      "price": "$900,000",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/31/57/78/1200x1200/1455341275.jpg?isFirstImage=true"
+    },
+    {
+      "id": "6",
+      "title": "Departamento en Magdalena",
+      "owner": "Carlos Rodriguez",
+      "sale_or_rent": "Rent",
+      "district": "Magdalena",
+      "year": "2019",
+      "description": "Furnished apartment with a view of the park",
+      "price": "$1,000",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/34/90/79/1200x1200/1456961751.jpg?isFirstImage=true"
+    },
+    {
+      "id": "7",
+      "title": "Casa en La Molina",
+      "owner": "Sofia Herrera",
+      "sale_or_rent": "Sale",
+      "district": "La Molina",
+      "year": "2016",
+      "description": "Luxurious house with a tennis court",
+      "price": "$1,800,000",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/41/96/20/46/1200x1200/1142306139.jpg?isFirstImage=true"
+    },
+    {
+      "id": "8",
+      "title": "Departamento en Jesus Maria",
+      "owner": "Raul Castro",
+      "sale_or_rent": "Rent",
+      "district": "Jesus Maria",
+      "year": "2020",
+      "description": "Renovated apartment near the university",
+      "price": "$1,300",
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/40/34/34/1200x1200/1458082809.jpg?isFirstImage=true"
+    }
+  ],
+  "user_payments": [
+    {
+      "id": "1",
+      "owner_name": "Juan Perez",
+      "dni": "12345678",
+      "phone_number": "+123456789",
+      "email": "juan@example.com",
+      "amount": "$100"
+    },
+    {
+      "id": "2",
+      "owner_name": "Maria Lopez",
+      "dni": "87654321",
+      "phone_number": "+987654321",
+      "email": "maria@example.com",
+      "amount": "$500"
+    },
+    {
+      "id": "3",
+      "owner_name": "Pedro Ramirez",
+      "dni": "23456789",
+      "phone_number": "+234567890",
+      "email": "pedro@example.com",
+      "amount": "$200"
+    },
+    {
+      "id": "4",
+      "owner_name": "Ana Torres",
+      "dni": "98765432",
+      "phone_number": "+987654321",
+      "email": "ana@example.com",
+      "amount": "$50"
+    },
+    {
+      "id": "ec8c",
+      "owner_name": "sadas",
+      "dni": 0,
+      "phone_number": "",
+      "email": "asd@sdada.com",
+      "amount": "0asddas"
+    }
+  ]
+}

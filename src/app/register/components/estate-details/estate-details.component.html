@@ -1,0 +1,29 @@
+<mat-card>
+  <div class="card-container" >
+    <mat-card *ngIf="estate" class="estate-card ">
+      <div class="header-container">
+        <mat-card-header class="estate-header">
+          <mat-card-title class="estate-title">{{ estate.title }}</mat-card-title>
+          <mat-card-subtitle class="estate-subtitle">{{ estate.description }}</mat-card-subtitle>
+        </mat-card-header>
+      </div>
+      <div class="body-container">
+        <div class="info-container">
+          <mat-card-content>
+            <p><strong>Owner:</strong> {{ estate.owner }}</p>
+            <p><strong>District:</strong> {{ estate.district }}</p>
+            <p><strong>Year:</strong> {{ estate.year }}</p>
+            <p><strong>For:</strong> {{ estate.sale_or_rent }}</p>
+            <p><strong>Price:</strong> {{ estate.price }}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button [routerLink]="['/estates-payment']">Comprar</button>
+          </mat-card-actions>
+        </div>
+        <div class="image-container">
+          <img mat-card-image [src]="estate.thumbnail" alt="Estate Image">
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</mat-card>
