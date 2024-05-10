@@ -1,0 +1,22 @@
+<div class="form-container">
+  <form (ngSubmit)="submitForm(registerForm.value)" #registerForm="ngForm">
+    <mat-label class="label-title"><strong>Register</strong></mat-label>
+      <mat-form-field appearance="outline" class="form--field">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="" name="name" [(ngModel)]="userData.name" required>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form--field">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="" name="email" [(ngModel)]="userData.email" required email>
+      </mat-form-field>
+
+
+
+    <mat-form-field appearance="outline" class="form--field">
+      <mat-label>Password</mat-label>
+      <input matInput type="password" placeholder="" name="password" [(ngModel)]="userData.password" required>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" [disabled]="!registerForm.form.valid">Create Account</button>
+  </form>
+</div>
