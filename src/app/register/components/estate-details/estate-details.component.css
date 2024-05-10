@@ -25,6 +25,7 @@
   align-items: center;
   background-color: #34216b;
   margin-bottom: 400px;
+  box-shadow: none;
 }
 
 .header-container {
@@ -70,4 +71,30 @@
   margin-left: auto;
   margin-right: 20px;
   font-size: 1.2rem;
+}
+@media only screen and (max-width: 1220px) {
+  .body-container {
+    flex-direction: column;
+  }
+  .estate-card {
+    width: 80%;
+  }
+  .info-container {
+    text-align: center;
+  }
+  .image-container {
+    order: -1;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .estate-card button {
+    margin: 10px auto;
+    display: block;
+  }
+  .image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
 }
