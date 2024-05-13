@@ -46,7 +46,7 @@ export class RegisterComponent implements OnDestroy {
           horizontalPosition: 'center',
           verticalPosition: 'top',
         });
-        this.router.navigate(['/estates-list']);
+        this.router.navigate(['/estates']);
       },
       error: (error) => {
         this.snackBar.open('Error al registrar usuario: ' + error.message, 'Cerrar', {
