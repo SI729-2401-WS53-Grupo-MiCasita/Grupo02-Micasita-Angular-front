@@ -7,8 +7,11 @@
   margin-top:8px;
   padding:20px;
 }
-.mat-toolbar img{
-  width:140px;
+.logo {
+  user-select: none;
+  padding: 4px;
+  width: 150px;
+  height: auto;
 }
 .hover-effect:hover {
   background-color: darkmagenta !important;

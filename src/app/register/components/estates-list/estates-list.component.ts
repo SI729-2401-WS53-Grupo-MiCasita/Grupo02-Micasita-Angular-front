@@ -20,6 +20,7 @@ export class EstatesListComponent implements OnInit{
   estates:Array<Estate> = [];
   filteredEstates: Array<Estate> = [];
   dataSource: any;
+  selectedFilter: string = '';
 
   constructor(private estatesService: EstatesService, private changeDetectorRef: ChangeDetectorRef) {}
   ngOnInit(): void {
@@ -29,7 +30,6 @@ export class EstatesListComponent implements OnInit{
       this.dataSource = new MatTableDataSource(this.estates);
     });
   }
-  selectedFilter: string = '';
   filterEstates(filterValue: string): void {
     if (this.selectedFilter === filterValue) {
       // If the selected filter is the same as the current filter, reset the filter

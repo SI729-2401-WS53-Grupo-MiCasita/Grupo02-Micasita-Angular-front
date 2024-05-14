@@ -54,7 +54,7 @@
 
 
 .image-container img {
-  width: 480px;
+  width: 500px;
   height: 340px;
   object-fit: cover;
   border-radius: 10px;
@@ -71,7 +71,7 @@
   margin-right: 20px;
   font-size: 1.2rem;
 }
-@media only screen and (max-width: 1220px) {
+@media only screen and (max-width: 1400px) {
   .body-container {
     flex-direction: column;
   }
@@ -94,6 +94,6 @@
   .image-container img {
     width: 100%;
     height: auto;
-    max-width: 300px;
+    max-width:320px;
   }
 }

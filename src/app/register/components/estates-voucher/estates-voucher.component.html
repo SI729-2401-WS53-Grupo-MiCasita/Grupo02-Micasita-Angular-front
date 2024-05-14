@@ -1,4 +1,4 @@
-<div class="container">
+<div>
   <div class="title-container">
     <h1 class="main-title">Confirmación de Pago</h1>
   </div>
@@ -10,16 +10,16 @@
       <div class="subtotal-container">
         <div class="subtotal-box">
           <span class="payment-amount-label">Subtotal:</span>
-          <span class="payment-amount-value">$1200</span>
+          <span class="payment-amount-value">{{ paymentAmount }}</span>
         </div>
         <div class="total-box">
           <span class="payment-amount-label">Total:</span>
-          <span class="payment-amount-value">$1200</span>
+          <span class="payment-amount-value">{{ paymentAmount }}</span>
         </div>
       </div>
 
       <div class="payment-method-button">
-        <button type="submit" [routerLink]="['/estates-list']">Finalizar</button>
+        <button type="submit" [routerLink]="['/estates']">Finalizar</button>
       </div>
     </div>
   </div>
