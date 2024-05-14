@@ -10,8 +10,8 @@ export const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'estates', component: EstatesListComponent },
   { path: 'estate/:id', component: EstateDetailsComponent },
-  {path: 'estates/payment', component:EstatesPaymentComponent},
-  {path: 'estates/voucher', component:EstatesVoucherComponent},
+  { path: 'estates/payment/:id', component: EstatesPaymentComponent },
+  {path: 'estates/voucher/:id', component:EstatesVoucherComponent},
   { path: '', redirectTo: 'estates', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

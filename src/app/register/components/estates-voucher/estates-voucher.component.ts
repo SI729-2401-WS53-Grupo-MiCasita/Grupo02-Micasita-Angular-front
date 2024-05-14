@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {MatFormField} from "@angular/material/form-field";
-import {RouterLink} from "@angular/router";
+import {ActivatedRoute, Router, RouterLink} from "@angular/router";
+import {EstatesService} from "../../services/estates-service/estates.service";
+import {Estate} from "../../model/estate-entity/estate.entity";
 
 @Component({
   selector: 'app-estates-voucher',
@@ -14,6 +16,26 @@ import {RouterLink} from "@angular/router";
   templateUrl: './estates-voucher.component.html',
   styleUrl: './estates-voucher.component.css'
 })
-export class EstatesVoucherComponent {
+export class EstatesVoucherComponent implements OnInit {
+  estate: Estate | undefined;
+  paymentAmount: string | undefined;
 
+  constructor(
+      private estatesService: EstatesService,
+      private route: ActivatedRoute
+  ) {}
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
+      this.estatesService.getEstateById(id).subscribe({
+        next: data => {
+          this.estate = data;
+          this.paymentAmount = this.estate?.price;
+        },
+        error: error => {
+          console.error('Error al obtener la propiedad', error);
+        }
+      });
+    }
+  }
 }

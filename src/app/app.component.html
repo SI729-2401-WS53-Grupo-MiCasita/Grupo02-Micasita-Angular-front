@@ -1,16 +1,16 @@
 <mat-toolbar class="mat-toolbar">
-    <div class="logo-container">
-        <img src="https://i.imgur.com/sbTMmRn.png" alt="MiCasita">
-    </div>
-    <span class="mat-spacer"></span>
-    <div class="button-container">
-    @for(option of options; track option.title) {
-        <a mat-button [routerLink]="option.path" [ngStyle]="{'color': '#ffffff',
+    <div class="container">
+        <img src="https://i.imgur.com/sbTMmRn.png" alt="MiCasita" class="logo">
+        <span class="mat-spacer"></span>
+        <div class="button-container">
+            @for(option of options; track option.title) {
+                <a mat-button [routerLink]="option.path" [ngStyle]="{'color': '#ffffff',
            'background-color': '#d854a5', 'font-size': '1.1rem',
            'padding': '18px 15px', 'min-width': '90px'}"
-           class="hover-effect">{{ option.title }}
-        </a>
-    }
+                   class="hover-effect">{{ option.title }}
+                </a>
+            }
+        </div>
     </div>
 </mat-toolbar>
 <router-outlet/>

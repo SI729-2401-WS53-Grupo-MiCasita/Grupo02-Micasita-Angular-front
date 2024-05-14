@@ -6,17 +6,19 @@
 <div class="form-container">
   <div class="left-section">
     <h2 class="payment-method-title">Medio de Pago:</h2>
-    <img src="https://cdn.worldvectorlogo.com/logos/bcp-4.svg" alt="Descripción de la imagen" class="imagen-bcp"> <!-- Agrega la imagen aquí -->
-    <div class="payment-container">
-      <div class="payment-amount">
-        <span class="payment-amount-label">Subtotal:</span>
-        <span class="payment-amount-value">$1200</span>
-      </div>
-      <div class="payment-amount">
-        <span class="payment-amount-label">Total:</span>
-        <span class="payment-amount-value">$1200</span>
-      </div>
-    </div>
+    <img src="https://cdn.worldvectorlogo.com/logos/bcp-4.svg" alt="Descripción de la imagen" class="imagen-bcp">
+      <mat-card>
+          <div class="payment-container">
+              <div class="payment-amount">
+                  <span class="payment-amount-label">Subtotal:</span>
+                  <span class="payment-amount-value">{{ paymentAmount }}</span>
+              </div>
+              <div class="payment-amount">
+                  <span class="payment-amount-label">Total:</span>
+                  <span class="payment-amount-value">{{ paymentAmount }}</span>
+              </div>
+          </div>
+      </mat-card>
     <p class="terms-text" style="margin-top: 1rem">Al hacer clic en "Pagar", aceptas los términos y condiciones.</p>
   </div>
   <div class="right-section">
@@ -38,11 +40,11 @@
         <label>Correo Electrónico</label>
         <input matInput placeholder="" name="email" [(ngModel)]="paymentData.email" required email>
       </mat-form-field>
-      <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
-        <label>Monto</label>
-        <input matInput placeholder="" name="amount" [(ngModel)]="paymentData.amount" required>
-      </mat-form-field>
-      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid" [routerLink]="['/estates/voucher']">Pagar</button>
+        <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
+            <label>Monto</label>
+            <input matInput placeholder="" name="amount" [(ngModel)]="paymentAmount" required>
+        </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid" [routerLink]="['/estates/voucher',estate?.id]">Pagar</button>
     </form>
   </div>
 </div>
