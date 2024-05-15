@@ -2,7 +2,6 @@
   <h1 class="main-title">Confirmación de Pago</h1>
   <div class="white-rectangle"></div>
 </div>
-
 <div class="form-container">
   <div class="left-section">
     <h2 class="payment-method-title">Medio de Pago:</h2>
@@ -42,7 +41,7 @@
       </mat-form-field>
         <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
             <label>Monto</label>
-            <input matInput placeholder="" name="amount" [(ngModel)]="paymentAmount" required>
+            <input matInput placeholder="" name="amount" [(ngModel)]="paymentAmount" required readonly>
         </mat-form-field>
       <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid" [routerLink]="['/estates/voucher',estate?.id]">Pagar</button>
     </form>

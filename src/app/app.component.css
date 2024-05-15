@@ -9,6 +9,7 @@
 }
 .logo {
   user-select: none;
+  -webkit-user-drag: none;
   padding: 4px;
   width: 150px;
   height: auto;
