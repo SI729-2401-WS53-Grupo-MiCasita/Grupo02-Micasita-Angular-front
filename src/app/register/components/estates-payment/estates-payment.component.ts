@@ -1,4 +1,4 @@
-import { Component,OnDestroy } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {PaymentService} from "../../services/payment-service/payment-service.service";
 import {MatFormField} from "@angular/material/form-field";
 import {FormsModule} from "@angular/forms";
@@ -21,7 +21,7 @@ import {NgIf} from "@angular/common";
   templateUrl: './estates-payment.component.html',
   styleUrl: './estates-payment.component.css'
 })
-export class EstatesPaymentComponent {
+export class EstatesPaymentComponent implements OnInit, OnDestroy{
   paymentData:PaymentEntity = new PaymentEntity();
   private paymentSubscription: Subscription | undefined;
   estate: Estate | undefined;
@@ -44,7 +44,6 @@ export class EstatesPaymentComponent {
           horizontalPosition: 'center',
           verticalPosition: 'top',
         });
-        this.router.navigate(['/estates-list']);
       },
       error: (error) => {
         this.snackBar.open('Error al implementar el Metodo de Pago: ' + error.message, 'Cerrar', {
@@ -64,7 +63,7 @@ export class EstatesPaymentComponent {
           this.paymentAmount = this.estate?.price;
         },
         error: error => {
-          console.error('Error al obtener la propiedad', error);
+          console.error('Error al obtener el precio de la propiedad', error);
         }
       });
     }

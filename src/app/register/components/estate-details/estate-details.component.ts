@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, RouterLink} from '@angular/router';
 import {Estate} from "../../model/estate-entity/estate.entity";
 import {NgForOf, NgIf} from "@angular/common";
@@ -34,7 +34,7 @@ import {
   templateUrl: './estate-details.component.html',
   styleUrl: './estate-details.component.css'
 })
-export class EstateDetailsComponent{
+export class EstateDetailsComponent implements OnInit{
   estate: Estate | undefined;
 
   constructor(
