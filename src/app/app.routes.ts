@@ -12,6 +12,6 @@ export const routes: Routes = [
   { path: 'estate/:id', component: EstateDetailsComponent },
   { path: 'estates/payment/:id', component: EstatesPaymentComponent },
   {path: 'estates/voucher/:id', component:EstatesVoucherComponent},
-  { path: '', redirectTo: 'estates', pathMatch: 'full' },
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];
