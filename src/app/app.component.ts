@@ -1,11 +1,10 @@
-// app.component.ts
 import { Component } from '@angular/core';
 import {Router, NavigationEnd, RouterOutlet} from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
-import {AuthService} from "./register/services/authentication/authentication.service";
-import {MatToolbar} from "@angular/material/toolbar";
-import {MatButton} from "@angular/material/button";
-import {NgIf} from "@angular/common";
+import { AuthService } from './register/services/authentication/authentication.service';
+import { MatToolbar } from '@angular/material/toolbar';
+import { MatButton } from '@angular/material/button';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -33,12 +32,16 @@ export class AppComponent {
   checkAuthenticationStatus() {
     this.authService.auth$.subscribe(authenticated => {
       this.isLoggedIn = authenticated;
-      this.showButtons =authenticated || window.location.pathname!== '/register';
+      const currentUrl = this.router.url;
+      const is404 = currentUrl === '/path-to-your-404' || currentUrl === '/register';
+
+      // showButtons será verdadero si el usuario está autenticado y no está en la página 404
+      this.showButtons = authenticated && !is404;
     });
   }
 
   onLogout() {
     this.authService.logout();
-    this.router.navigate(['/register']); // Redirige a la página de registro después de cerrar sesión
+    this.router.navigate(['/register']);
   }
 }
