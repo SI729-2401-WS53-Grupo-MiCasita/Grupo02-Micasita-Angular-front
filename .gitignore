@@ -64,4 +64,6 @@ node_modules/
 
 # dotenv environment variables file
 .env
-.angular\cache\17.3.6\
+
+
+/.angular/
