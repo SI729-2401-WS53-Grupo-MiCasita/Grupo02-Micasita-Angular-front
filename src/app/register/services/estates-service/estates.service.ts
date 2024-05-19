@@ -8,7 +8,7 @@ import {BaseService} from "../../../shared/services/base.service";
   providedIn: 'root'
 })
 export class EstatesService extends BaseService<Estate>{
-  private baseUrl = 'http://localhost:3000'
+  private baseUrl = 'https://my-json-server.typicode.com/drkdevv1/db-server-demo'
 
 
   constructor(http: HttpClient) {
