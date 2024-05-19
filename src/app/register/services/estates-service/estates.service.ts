@@ -8,7 +8,7 @@ import {BaseService} from "../../../shared/services/base.service";
   providedIn: 'root'
 })
 export class EstatesService extends BaseService<Estate>{
-  private baseUrl = 'https://my-json-server.typicode.com/drkdevv1/db-server-demo'
+  private baseUrl = 'http://localhost:3000'
 
 
   constructor(http: HttpClient) {
@@ -21,6 +21,10 @@ export class EstatesService extends BaseService<Estate>{
 
   getEstateById(id: string): Observable<Estate> {
     return this.http.get<Estate>(`${this.baseUrl}/estates/${id}`);
+  }
+
+  createEstate(estate: Estate): Observable<Estate> {
+    return this.http.post<Estate>(`${this.baseUrl}/estates`, estate);
   }
   getAll(): Observable<Estate[]> {
     return this.http.get<Estate[]>(this.resourcePath(), this.httpOptions)

@@ -1,0 +1,69 @@
+<div class="create-estates-container">
+        <div class="create-card">
+            <h1>Añadir Propiedad</h1>
+            <form (ngSubmit)="onSubmit()"#createForm="ngForm">
+                <div class="input-group">
+                    <label>Añade un titulo</label>
+                    <input [(ngModel)]="estate.title" name="title" placeholder="Propiedad frente al mar" required>
+                </div>
+                <div class="input-group">
+                    <label>Nombre completo del propietario</label>
+                    <input [(ngModel)]="estate.owner" name="owner" placeholder="John doe" required>
+                </div>
+                <div class="input-group operation">
+                    <label>Tipo de operación</label>
+                    <div>
+                        <input type="radio" id="venta" name="sale_or_rent" value="Sale" [(ngModel)]="estate.sale_or_rent" required>
+                        <label for="venta">Venta</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="alquiler" name="sale_or_rent" value="Rent" [(ngModel)]="estate.sale_or_rent" required>
+                        <label for="alquiler">Alquiler</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Donde esta ubicado tu inmueble?</label>
+                    <select [(ngModel)]="estate.district" name="district" required>
+                        <option value="Miraflores">Miraflores</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="Barranco">Barranco</option>
+                        <option value="Santiago de Surco">Santiago de Surco</option>
+                        <option value="San Miguel">San Miguel</option>
+                        <option value="Magdalena">Magdalena</option>
+                        <option value="Lince">Lince</option>
+                        <option value="Cercado de Lima">Cercado de Lima</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Año de estreno</label>
+                    <select [(ngModel)]="estate.year" name="year" required>
+                        <option *ngFor="let year of years" [value]="year">{{year}}</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Descripción</label>
+                    <textarea [(ngModel)]="estate.description" name="description" maxlength="250" required></textarea>
+                </div>
+                <div class="input-group price">
+                    <label>Tipo de moneda</label>
+                    <div>
+                        <input type="radio" id="usd" name="sale_or_rent" value="Dolar" [(ngModel)]="estate.currency" required>
+                        <label for="usd">Dólares</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="sol" name="sale_or_rent" value="Sol" [(ngModel)]="estate.currency" required>
+                        <label for="sol">Soles</label>
+                    </div>
+                    <label>Precio</label>
+                    <input [(ngModel)]="estate.price" name="price" placeholder="" type="number" required>
+                </div>
+
+                <div class="input-group">
+
+                    <label>Agrega imagenes de tu propiedad</label>
+                    <input [(ngModel)]="estate.thumbnail" name="thumbnail" placeholder="Thumbnail">
+                </div>
+                <button type="submit" [disabled]="!createForm.form.valid" >Submit</button>
+            </form>
+        </div>
+    </div>
