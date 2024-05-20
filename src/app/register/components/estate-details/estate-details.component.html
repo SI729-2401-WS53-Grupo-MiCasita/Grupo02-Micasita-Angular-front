@@ -15,8 +15,13 @@
             <p><strong>For:</strong> {{ estate.sale_or_rent }}</p>
             <p><strong>Price:</strong> {{ estate.price }}</p>
           </mat-card-content>
-          <mat-card-actions>
-              <button mat-button [routerLink]="['/estates/payment', estate.id]">Comprar</button>          </mat-card-actions>
+            <div class="button-container">
+                <mat-card-actions>
+                    <button mat-raised-button [routerLink]="['/estates/payment', estate.id]">Comprar</button>
+                    <button id="back-button" mat-raised-button [routerLink]="['/estates']">Volver</button>
+                </mat-card-actions>
+            </div>
+
         </div>
         <div class="image-container">
           <img mat-card-image [src]="estate.thumbnail" alt="Estate Image">

@@ -6,6 +6,7 @@ export class Estate {
   district: string;
   year: string;
   description: string;
+  currency: string;
   price: string;
   thumbnail: string;
 
@@ -16,6 +17,7 @@ export class Estate {
     this.district = "";
     this.year = "";
     this.description = "";
+    this.currency = "";
     this.price = "";
     this.thumbnail = "";
   }
