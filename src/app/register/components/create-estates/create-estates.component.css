@@ -1,0 +1,73 @@
+.create-card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 700px;
+    margin: auto;
+}
+.create-estates-container{
+    display: flex;
+    justify-content: center;
+    border: none;
+    margin:20px;
+}
+.create-card h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.create-card .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.create-card .input-group label {
+    margin-bottom: 10px;
+}
+
+.create-card .input-group input,
+.create-card .input-group select,
+.create-card .input-group textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.create-card .input-group textarea {
+    height: 100px;
+    resize: none;
+}
+
+.create-card .input-group .operation {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.create-card .input-group .price input {
+    text-indent: 20px;
+}
+.create-card button[type="submit"] {
+    background-color: #d854a5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+}
+.create-card h1{
+    color: #34216b;
+}
+.create-card button[type="submit"]:hover {
+    background-color: darkmagenta;
+}
+
+.create-card button[type="submit"]:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+

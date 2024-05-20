@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import {Router, NavigationEnd, RouterOutlet} from '@angular/router';
+import {Router, NavigationEnd, RouterOutlet, RouterLink} from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { AuthService } from './register/services/authentication/authentication.service';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatButton } from '@angular/material/button';
 import { NgIf } from '@angular/common';
+
 
 @Component({
   selector: 'app-root',
@@ -14,13 +15,15 @@ import { NgIf } from '@angular/common';
     MatToolbar,
     RouterOutlet,
     MatButton,
-    NgIf
+    NgIf,
+    RouterLink
   ],
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   isLoggedIn = false;
   showButtons = false;
+  title: string = 'daos-ws53-micasita';
 
   constructor(private authService: AuthService, private router: Router) {
     this.router.events.pipe(
@@ -39,7 +42,9 @@ export class AppComponent {
       this.showButtons = authenticated && !is404;
     });
   }
-
+  navigateToEstates() {
+    this.router.navigate(['/estates']);
+  }
   onLogout() {
     this.authService.logout();
     this.router.navigate(['/register']);

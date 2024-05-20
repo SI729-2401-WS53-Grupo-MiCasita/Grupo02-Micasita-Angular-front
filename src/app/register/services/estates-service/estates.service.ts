@@ -22,6 +22,10 @@ export class EstatesService extends BaseService<Estate>{
   getEstateById(id: string): Observable<Estate> {
     return this.http.get<Estate>(`${this.baseUrl}/estates/${id}`);
   }
+
+  createEstate(estate: Estate): Observable<Estate> {
+    return this.http.post<Estate>(`${this.baseUrl}/estates`, estate);
+  }
   getAll(): Observable<Estate[]> {
     return this.http.get<Estate[]>(this.resourcePath(), this.httpOptions)
       .pipe(retry(2), catchError(this.handleError));

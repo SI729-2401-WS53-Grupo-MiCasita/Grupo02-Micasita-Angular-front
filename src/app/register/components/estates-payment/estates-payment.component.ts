@@ -19,20 +19,21 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [RouterLink, FormsModule, MatFormField, MatInput, MatButton, MatCard, NgIf],
   templateUrl: './estates-payment.component.html',
-  styleUrl: './estates-payment.component.css'
+  styleUrls: ['./estates-payment.component.css']
 })
-export class EstatesPaymentComponent implements OnInit, OnDestroy{
-  paymentData:PaymentEntity = new PaymentEntity();
+export class EstatesPaymentComponent implements OnInit, OnDestroy {
+  paymentData: PaymentEntity = new PaymentEntity();
   private paymentSubscription: Subscription | undefined;
   estate: Estate | undefined;
   paymentAmount: string | undefined;
+  selectedPaymentMethod: string | undefined;  // Variable para almacenar el método de pago seleccionado
 
   constructor(
-    private registerService: PaymentService,
-    private router: Router,
-    private snackBar: MatSnackBar,
-    private route: ActivatedRoute,
-    private estatesService: EstatesService
+      private registerService: PaymentService,
+      private router: Router,
+      private snackBar: MatSnackBar,
+      private route: ActivatedRoute,
+      private estatesService: EstatesService
   ) {}
 
   submitForm(formData: any) {
@@ -54,6 +55,7 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy{
       }
     });
   }
+
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
@@ -73,5 +75,10 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy{
     if (this.paymentSubscription) {
       this.paymentSubscription.unsubscribe();
     }
+  }
+
+  // Función para seleccionar el método de pago
+  selectPaymentMethod(method: string) {
+    this.selectedPaymentMethod = method;
   }
 }
