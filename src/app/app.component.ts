@@ -3,9 +3,11 @@ import {Router, NavigationEnd, RouterOutlet, RouterLink} from '@angular/router';
 import { filter, tap } from 'rxjs/operators';
 import { AuthService } from './register/services/authentication/authentication.service';
 import { MatToolbar } from '@angular/material/toolbar';
-import { MatButton } from '@angular/material/button';
+import {MatButton, MatIconButton} from '@angular/material/button';
 import { NgIf } from '@angular/common';
-
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {MatIcon} from "@angular/material/icon";
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,13 @@ import { NgIf } from '@angular/common';
     RouterOutlet,
     MatButton,
     NgIf,
-    RouterLink
+    RouterLink,
+    MatMenu,
+    MatIcon,
+    MatMenuTrigger,
+    MatIconButton,
+    MatMenuItem,
+    MatDialogModule
   ],
   styleUrls: ['./app.component.css']
 })

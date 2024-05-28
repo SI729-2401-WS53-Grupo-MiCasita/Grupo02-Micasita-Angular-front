@@ -65,4 +65,5 @@ node_modules
 # dotenv environment variables file
 .env
 
-/.angular/
+# Ignore cache created with the Angular CLI.
+.angular/
