@@ -4,14 +4,23 @@
             <form (ngSubmit)="onSubmit()"#createForm="ngForm">
                 <div class="input-group">
                     <label>Añade un titulo</label>
-                    <input [(ngModel)]="estate.title" name="title" placeholder="Propiedad frente al mar" required>
+                    <mat-form-field appearance="outline">
+                        <input [(ngModel)]="estate.title" name="title" matInput placeholder="Propiedad frente al mar" required>
+                    </mat-form-field>
                 </div>
                 <div class="input-group">
                     <label>Nombre completo del propietario</label>
-                    <input [(ngModel)]="estate.owner" name="owner" placeholder="John doe" required>
+                    <mat-form-field appearance="outline">
+                        <input [(ngModel)]="estate.owner" name="owner" matInput placeholder="John doe" required>
+                    </mat-form-field>
                 </div>
                 <div class="input-group operation">
                     <label>Tipo de operación</label>
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button id="venta" name="sale_or_rent" value="Sale" [(ngModel)]="estate.sale_or_rent" required>Venta</mat-radio-button>
+                        <mat-radio-button id="alquiler" name="sale_or_rent" value="Rent" [(ngModel)]="estate.sale_or_rent" required>Alquiler</mat-radio-button>
+                    </mat-radio-group>
+                    <!--
                     <div>
                         <input type="radio" id="venta" name="sale_or_rent" value="Sale" [(ngModel)]="estate.sale_or_rent" required>
                         <label for="venta">Venta</label>
@@ -20,46 +29,55 @@
                         <input type="radio" id="alquiler" name="sale_or_rent" value="Rent" [(ngModel)]="estate.sale_or_rent" required>
                         <label for="alquiler">Alquiler</label>
                     </div>
+                    -->
                 </div>
                 <div class="input-group">
-                    <label>Donde esta ubicado tu inmueble?</label>
-                    <select [(ngModel)]="estate.district" name="district" required>
-                        <option value="Miraflores">Miraflores</option>
-                        <option value="San Isidro">San Isidro</option>
-                        <option value="Barranco">Barranco</option>
-                        <option value="Santiago de Surco">Santiago de Surco</option>
-                        <option value="San Miguel">San Miguel</option>
-                        <option value="Magdalena">Magdalena</option>
-                        <option value="Lince">Lince</option>
-                        <option value="Cercado de Lima">Cercado de Lima</option>
-                    </select>
+                    <label>Donde está ubicado tu inmueble?</label>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Distrito</mat-label>
+                        <mat-select [(ngModel)]="estate.district" name="district" required>
+                            <mat-option value="Miraflores">Miraflores</mat-option>
+                            <mat-option value="San Isidro">San Isidro</mat-option>
+                            <mat-option value="Barranco">Barranco</mat-option>
+                            <mat-option value="Santiago de Surco">Santiago de Surco</mat-option>
+                            <mat-option value="San Miguel">San Miguel</mat-option>
+                            <mat-option value="Magdalena">Magdalena</mat-option>
+                            <mat-option value="Lince">Lince</mat-option>
+                            <mat-option value="Cercado de Lima">Cercado de Lima</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <div class="input-group">
                     <label>Año de estreno</label>
-                    <select [(ngModel)]="estate.year" name="year" required>
-                        <option *ngFor="let year of years" [value]="year">{{year}}</option>
-                    </select>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Año</mat-label>
+                        <mat-select [(ngModel)]="estate.year" name="year" required>
+                            <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <div class="input-group">
                     <label>Descripción</label>
-                    <textarea [(ngModel)]="estate.description" name="description" maxlength="250" required></textarea>
+                    <mat-form-field appearance="outline">
+                        <textarea matInput placeholder="" [(ngModel)]="estate.description" name="description" maxlength="250" required></textarea>
+                    </mat-form-field>
+                    <!--
+                    <textarea [(ngModel)]="estate.description" name="description" maxlength="250" required></textarea>-->
                 </div>
                 <div class="input-group price">
                     <label>Tipo de moneda</label>
-                    <div>
-                        <input type="radio" id="usd" name="sale_or_rent" value="Dolar" [(ngModel)]="estate.currency" required>
-                        <label for="usd">Dólares</label>
-                    </div>
-                    <div>
-                        <input type="radio" id="sol" name="sale_or_rent" value="Sol" [(ngModel)]="estate.currency" required>
-                        <label for="sol">Soles</label>
-                    </div>
-                    <label>Precio</label>
-                    <input [(ngModel)]="estate.price" name="price" placeholder="" type="number" required>
+                    <mat-radio-group aria-label="Select an option">
+                        <mat-radio-button id="usd" name="currency" value="Dolar" [(ngModel)]="estate.currency" required>Dólares</mat-radio-button>
+                        <mat-radio-button id="sol" name="currency" value="Sol" [(ngModel)]="estate.currency" required>Soles</mat-radio-button>
+                    </mat-radio-group>
+                    <!--<label>Precio</label>-->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Precio</mat-label>
+                        <input matInput placeholder="" [(ngModel)]="estate.price" name="price" type="number" required>
+                    </mat-form-field>
+                    <!--<input [(ngModel)]="estate.price" name="price" placeholder="" type="number" required>-->
                 </div>
-
                 <div class="input-group">
-
                     <label>Agrega imagenes de tu propiedad</label>
                     <input [(ngModel)]="estate.thumbnail" name="thumbnail" placeholder="Thumbnail">
                 </div>

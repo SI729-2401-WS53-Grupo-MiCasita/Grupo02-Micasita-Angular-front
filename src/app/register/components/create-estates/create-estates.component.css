@@ -29,7 +29,6 @@
 .create-card .input-group input,
 .create-card .input-group select,
 .create-card .input-group textarea {
-    padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
