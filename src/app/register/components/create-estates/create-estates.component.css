@@ -14,6 +14,10 @@
 .create-card h1 {
     text-align: center;
     margin-bottom: 20px;
+    font-family:  'Poppins', sans-serif;
+    font-weight: 500;
+    color: #34216b;
+    font-size: 1.8rem;
 }
 
 .create-card .input-group {
@@ -47,26 +51,41 @@
 .create-card .input-group .price input {
     text-indent: 20px;
 }
-.create-card button[type="submit"] {
+.create-card button.next-button{
+    background-color: #d854a5;
+    color: white;
+}
+.create-card button.next-button:hover{
+    background-color: darkmagenta;
+}
+
+.create-card button.previous-button{
+    background-color: #673ab7;
+    color: white;
+    margin: 10px;
+}
+.create-card button.previous-button:hover{
+    background-color: #9252ff;
+}
+
+
+.create-card button.submit-button {
     background-color: #d854a5;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px;
     cursor: pointer;
-    width: 100%;
+    width: 60%;
+    margin: 10px;
 }
-.create-card h1{
-    color: #34216b;
-}
-.create-card button[type="submit"]:hover {
+
+.create-card button.submit-button:hover {
     background-color: darkmagenta;
 }
 
-.create-card button[type="submit"]:disabled {
+.create-card button.submit-button:disabled {
     background-color: #ccc;
     color: #666;
     cursor: not-allowed;
 }
-
 
