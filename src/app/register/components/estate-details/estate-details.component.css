@@ -46,16 +46,17 @@
   text-align: right;
 }
 
-
-
 .image-container {
+  display: flex;
   flex: 0 0 30%;
+  justify-content: center;
+  align-items: center;
 }
 
 
 .image-container img {
-  width: 500px;
-  height: 340px;
+  width: 600px;
+  height: 400px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -66,8 +67,8 @@
   border: none;
   border-radius: 5px;
   font-family: 'Roboto', sans-serif;
-  width: auto; /* Permite que el botón determine su propio ancho */
-  margin: 10px; /* Añade un margen vertical entre los botones */
+  width: auto;
+  margin: 10px;
   font-size: 1.2rem;
   display: block;
 }
@@ -87,7 +88,7 @@
   align-items: flex-end;
 }
 
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1250px) {
   .body-container {
     flex-direction: column;
   }
@@ -104,12 +105,17 @@
     justify-content: center;
   }
   .estate-card button {
-    margin: 10px auto;
+    margin: 10px;
     display: block;
   }
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .image-container img {
-    width: 100%;
+    width: 90vw;
     height: auto;
-    max-width:320px;
+    max-width:500px;
   }
 }
