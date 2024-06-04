@@ -97,7 +97,32 @@
                         </div>
                         <div class="input-group">
                             <label>Agrega imagenes de tu propiedad</label>
-                            <input formControlName="thumbnail" placeholder="En proceso">
+                            <mat-card class="card-general card-files">
+                                <mat-card-content>
+                                    <div class="card-subcontainer subcontainer-5">
+                                        @if (!imageSrc){
+                                            <div class="files-container_case-1" >
+                                                <input type="file" name="product_image" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+                                                <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput')">Add image</button>
+                                                <p>Accept only images</p>
+                                            </div>
+                                        }
+                                        @else if (imageSrc){
+
+                                            <div class="files-container_case-2">
+                                                <div class="image-preview">
+                                                    <img [src]="imageSrc" alt="Preview">
+                                                </div>
+                                                <div class="case-2_container-add">
+                                                    <input type="file" name="product_image" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
+                                                    <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput2')">Change image</button>
+                                                    <p>Accept only images</p>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+                                </mat-card-content>
+                            </mat-card>
                         </div>
                         <div class="input-group">
                             <label>Dormitorios</label>
