@@ -5,10 +5,10 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import { ToastrService } from 'ngx-toastr';
 import {Router, RouterLink} from "@angular/router";
 import {MatCard} from "@angular/material/card";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from "@angular/material/radio";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
@@ -29,7 +29,7 @@ import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} f
         MatInput,
         MatLabel,
         MatOption,
-        MatSelect, MatRadioModule, MatStepper, MatStep, ReactiveFormsModule, MatStepLabel, MatStepperNext, MatStepperPrevious
+        MatSelect, MatRadioModule, MatStepper, MatStep, ReactiveFormsModule, MatStepLabel, MatStepperNext, MatStepperPrevious, MatError, NgIf
     ],
   templateUrl: './create-estates.component.html',
   styleUrl: './create-estates.component.css'
@@ -39,7 +39,7 @@ export class CreateEstatesComponent implements OnInit{
   years: number[] = [];
 
     personalDataForm: FormGroup;
-    titleOperationTypeForm: FormGroup;
+    OperationTypeForm: FormGroup;
     locationForm: FormGroup;
     featuresForm: FormGroup;
 
@@ -49,7 +49,7 @@ export class CreateEstatesComponent implements OnInit{
             owner: ['', Validators.required]
         });
 
-        this.titleOperationTypeForm = this.formBuilder.group({
+        this.OperationTypeForm = this.formBuilder.group({
             sale_or_rent: ['', Validators.required],
             type: ['', Validators.required]
         });
@@ -62,7 +62,7 @@ export class CreateEstatesComponent implements OnInit{
             year: ['', Validators.required],
             currency: ['', Validators.required],
             price: ['', Validators.required],
-            thumbnail: ['', Validators.required],
+            //thumbnail: ['', Validators.required],
             size: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
@@ -74,7 +74,7 @@ export class CreateEstatesComponent implements OnInit{
 
     onSubmit(): void {
         // Combine the values from all form groups into a single object
-        this.estate = {...this.personalDataForm.value, ...this.titleOperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
+        this.estate = {...this.personalDataForm.value, ...this.OperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
 
         this.estatesService.createEstate(this.estate).subscribe();
         this.toastr.success('Tu propiedad se creó satisfactoriamente', 'Propiedad agregada',{

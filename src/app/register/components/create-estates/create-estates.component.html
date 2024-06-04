@@ -17,8 +17,8 @@
                         </div>
                     </form>
                 </mat-step>
-                <mat-step [stepControl]="titleOperationTypeForm">
-                    <form [formGroup]="titleOperationTypeForm">
+                <mat-step [stepControl]="OperationTypeForm">
+                    <form [formGroup]="OperationTypeForm">
                         <ng-template matStepLabel>Operación y tipo de inmueble</ng-template>
                         <div class="input-group operation">
                             <label>Tipo de operación</label>
@@ -26,6 +26,9 @@
                                 <mat-radio-button id="venta" value="Sale" required>Venta</mat-radio-button>
                                 <mat-radio-button id="alquiler" value="Rent" required>Alquiler</mat-radio-button>
                             </mat-radio-group>
+                            <mat-error *ngIf="OperationTypeForm.get('sale_or_rent')?.invalid">
+                                Por favor, selecciona una opción.
+                            </mat-error>
                         </div>
                         <div class="input-group">
                             <label>Tipo de Inmueble</label>
@@ -88,6 +91,9 @@
                                 <mat-radio-button id="usd" name="currency" value="Dolar" required>Dólares</mat-radio-button>
                                 <mat-radio-button id="sol" name="currency" value="Sol" required>Soles</mat-radio-button>
                             </mat-radio-group>
+                            <mat-error *ngIf="featuresForm.get('currency')?.invalid">
+                                Por favor, selecciona una opción.
+                            </mat-error>
 
                             <mat-form-field appearance="outline">
                                 <mat-label>Precio</mat-label>
@@ -95,9 +101,18 @@
                             </mat-form-field>
 
                         </div>
+                        <!--
                         <div class="input-group">
                             <label>Agrega imagenes de tu propiedad</label>
                             <input formControlName="thumbnail" placeholder="En proceso">
+                        </div>
+                        -->
+                        <div class="input-group">
+                            <label>Tamaño en m2</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="size" type="number" required>
+                            </mat-form-field>
                         </div>
                         <div class="input-group">
                             <label>Dormitorios</label>
@@ -136,7 +151,7 @@
                         </div>
                         <div>
                             <button mat-button matStepperPrevious class="previous-button">Anterior</button>
-                            <button class="submit-button" mat-button type="submit" [disabled]="!personalDataForm.valid || !titleOperationTypeForm.valid || !locationForm.valid || !featuresForm.valid">Publicar Propiedad</button>
+                            <button class="submit-button" mat-button type="submit" [disabled]="!personalDataForm.valid || !OperationTypeForm.valid || !locationForm.valid || !featuresForm.valid">Publicar Propiedad</button>
                         </div>
                     </form>
                 </mat-step>
