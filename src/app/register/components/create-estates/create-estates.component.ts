@@ -66,7 +66,7 @@ export class CreateEstatesComponent implements OnInit{
             year: ['', Validators.required],
             currency: ['', Validators.required],
             price: ['', Validators.required],
-            //thumbnail: ['', Validators.required],
+            thumbnail: ['', Validators.required],
             size: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
