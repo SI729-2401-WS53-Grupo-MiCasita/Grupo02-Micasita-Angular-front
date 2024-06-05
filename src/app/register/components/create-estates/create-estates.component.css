@@ -54,6 +54,7 @@
 .create-card button.next-button{
     background-color: #d854a5;
     color: white;
+    margin: 10px;
 }
 .create-card button.next-button:hover{
     background-color: darkmagenta;

@@ -17,8 +17,8 @@
                         </div>
                     </form>
                 </mat-step>
-                <mat-step [stepControl]="titleOperationTypeForm">
-                    <form [formGroup]="titleOperationTypeForm">
+                <mat-step [stepControl]="OperationTypeForm">
+                    <form [formGroup]="OperationTypeForm">
                         <ng-template matStepLabel>Operación y tipo de inmueble</ng-template>
                         <div class="input-group operation">
                             <label>Tipo de operación</label>
@@ -26,6 +26,9 @@
                                 <mat-radio-button id="venta" value="Sale" required>Venta</mat-radio-button>
                                 <mat-radio-button id="alquiler" value="Rent" required>Alquiler</mat-radio-button>
                             </mat-radio-group>
+                            <mat-error *ngIf="OperationTypeForm.get('sale_or_rent')?.invalid">
+                                Por favor, selecciona una opción.
+                            </mat-error>
                         </div>
                         <div class="input-group">
                             <label>Tipo de Inmueble</label>
@@ -88,13 +91,18 @@
                                 <mat-radio-button id="usd" name="currency" value="Dolar" required>Dólares</mat-radio-button>
                                 <mat-radio-button id="sol" name="currency" value="Sol" required>Soles</mat-radio-button>
                             </mat-radio-group>
+                            <mat-error *ngIf="featuresForm.get('currency')?.invalid">
+                                Por favor, selecciona una opción.
+                            </mat-error>
 
                             <mat-form-field appearance="outline">
                                 <mat-label>Precio</mat-label>
                                 <input matInput placeholder="" formControlName="price" type="number" required>
                             </mat-form-field>
 
+
                         </div>
+
                         <div class="input-group">
                             <label>Agrega imagenes de tu propiedad</label>
                             <mat-card class="card-general card-files">
@@ -102,19 +110,18 @@
                                     <div class="card-subcontainer subcontainer-5">
                                         @if (!imageSrc){
                                             <div class="files-container_case-1" >
-                                                <input type="file" name="product_image" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
+                                                <input type="file" id="fileInput" (change)="onFileSelected($event)" style="display: none;">
                                                 <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput')">Add image</button>
                                                 <p>Accept only images</p>
                                             </div>
                                         }
                                         @else if (imageSrc){
-
                                             <div class="files-container_case-2">
                                                 <div class="image-preview">
                                                     <img [src]="imageSrc" alt="Preview">
                                                 </div>
                                                 <div class="case-2_container-add">
-                                                    <input type="file" name="product_image" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
+                                                    <input type="file" id="fileInput2" (change)="onFileSelected($event)" style="display: none;">
                                                     <button mat-raised-button type="button" (click)="onClickAddFiles('fileInput2')">Change image</button>
                                                     <p>Accept only images</p>
                                                 </div>
@@ -123,6 +130,14 @@
                                     </div>
                                 </mat-card-content>
                             </mat-card>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Tamaño en m2</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="size" type="number" required>
+                            </mat-form-field>
                         </div>
                         <div class="input-group">
                             <label>Dormitorios</label>
@@ -161,8 +176,7 @@
                         </div>
                         <div>
                             <button mat-button matStepperPrevious class="previous-button">Anterior</button>
-                            <button class="submit-button" mat-button type="submit" [disabled]="!personalDataForm.valid || !titleOperationTypeForm.valid || !locationForm.valid || !featuresForm.valid">Publicar Propiedad</button>
-                        </div>
+                            <button class="submit-button" mat-button type="submit" [disabled]="!personalDataForm.valid || !OperationTypeForm.valid || !locationForm.valid || !featuresForm.valid">Publicar Propiedad</button>                        </div>
                     </form>
                 </mat-step>
             </mat-stepper>

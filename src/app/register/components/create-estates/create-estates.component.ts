@@ -5,10 +5,10 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import { ToastrService } from 'ngx-toastr';
 import {Router, RouterLink} from "@angular/router";
 import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from "@angular/material/radio";
-import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatError, MatFormField, MatLabel} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
 import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
@@ -30,7 +30,7 @@ import {StorageService} from "../../services/storage/storage.service";
         MatInput,
         MatLabel,
         MatOption,
-        MatSelect, MatRadioModule, MatStepper, MatStep, ReactiveFormsModule, MatStepLabel, MatStepperNext, MatStepperPrevious, MatCardHeader, MatCardContent
+        MatSelect, MatRadioModule, MatStepper, MatStep, ReactiveFormsModule, MatStepLabel, MatStepperNext, MatStepperPrevious, MatCardHeader, MatCardContent, MatError, NgIf
     ],
     templateUrl: './create-estates.component.html',
     styleUrl: './create-estates.component.css'
@@ -41,7 +41,7 @@ export class CreateEstatesComponent implements OnInit{
     imageSrc: string = '';
 
     personalDataForm: FormGroup;
-    titleOperationTypeForm: FormGroup;
+    OperationTypeForm: FormGroup;
     locationForm: FormGroup;
     featuresForm: FormGroup;
 
@@ -51,7 +51,7 @@ export class CreateEstatesComponent implements OnInit{
             owner: ['', Validators.required]
         });
 
-        this.titleOperationTypeForm = this.formBuilder.group({
+        this.OperationTypeForm = this.formBuilder.group({
             sale_or_rent: ['', Validators.required],
             type: ['', Validators.required]
         });
@@ -79,8 +79,17 @@ export class CreateEstatesComponent implements OnInit{
             const file = event.target.files[0];
 
             const reader = new FileReader();
-            reader.onload = e => this.imageSrc = reader.result as string;
-
+            reader.onload = e => {
+                if (reader.result) {
+                    this.imageSrc = reader.result as string;
+                    if (this.featuresForm) {
+                        const thumbnailControl = this.featuresForm.get('thumbnail');
+                        if (thumbnailControl) {
+                            thumbnailControl.setValue(this.imageSrc); // Set the Data URL string to the form control
+                        }
+                    }
+                }
+            };
             reader.readAsDataURL(file);
         }
     }
@@ -94,7 +103,7 @@ export class CreateEstatesComponent implements OnInit{
 
     onSubmit(): void {
         // Combine the values from all form groups into a single object
-        this.estate = {...this.personalDataForm.value, ...this.titleOperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
+        this.estate = {...this.personalDataForm.value, ...this.OperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
         this.storageService.uploadImage('estates', this.estate.title + "_" + this.estate.id, this.estate.thumbnail).then((urlImage: string | null) => {
             if (urlImage) {
                 console.log("Url de la imagen : ", urlImage);
