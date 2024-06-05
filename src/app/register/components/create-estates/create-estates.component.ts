@@ -4,7 +4,9 @@ import { EstatesService } from '../../services/estates-service/estates.service';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 import {Router, RouterLink} from "@angular/router";
+
 import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
+
 import {NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {MatRadioButton, MatRadioGroup, MatRadioModule} from "@angular/material/radio";
@@ -64,7 +66,7 @@ export class CreateEstatesComponent implements OnInit{
             year: ['', Validators.required],
             currency: ['', Validators.required],
             price: ['', Validators.required],
-            thumbnail: ['', Validators.required],
+            //thumbnail: ['', Validators.required],
             size: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
@@ -93,14 +95,12 @@ export class CreateEstatesComponent implements OnInit{
             reader.readAsDataURL(file);
         }
     }
-
     onClickAddFiles(id:string ) {
         const fileInput = document.getElementById(id);
         if (fileInput) {
             fileInput.click();
         }
     }
-
     onSubmit(): void {
         // Combine the values from all form groups into a single object
         this.estate = {...this.personalDataForm.value, ...this.OperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};

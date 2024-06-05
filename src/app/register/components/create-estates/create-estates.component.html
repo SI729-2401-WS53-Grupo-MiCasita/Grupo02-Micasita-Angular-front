@@ -102,7 +102,6 @@
 
 
                         </div>
-
                         <div class="input-group">
                             <label>Agrega imagenes de tu propiedad</label>
                             <mat-card class="card-general card-files">
@@ -132,6 +131,13 @@
                             </mat-card>
                         </div>
 
+                        <div class="input-group">
+                            <label>Tamaño en m2</label>
+                            <mat-form-field appearance="outline">
+                                <mat-label>0</mat-label>
+                                <input matInput placeholder="" formControlName="size" type="number" required>
+                            </mat-form-field>
+                        </div>
                         <div class="input-group">
                             <label>Tamaño en m2</label>
                             <mat-form-field appearance="outline">
@@ -177,6 +183,7 @@
                         <div>
                             <button mat-button matStepperPrevious class="previous-button">Anterior</button>
                             <button class="submit-button" mat-button type="submit" [disabled]="!personalDataForm.valid || !OperationTypeForm.valid || !locationForm.valid || !featuresForm.valid">Publicar Propiedad</button>                        </div>
+
                     </form>
                 </mat-step>
             </mat-stepper>
