@@ -41,6 +41,16 @@ export class EstateDetailsComponent implements OnInit{
     private route: ActivatedRoute,
     private estatesService: EstatesService
   ) { }
+  getCurrencySymbol(currency: string): string {
+    switch (currency) {
+      case 'Dolar':
+        return '$';
+      case 'Sol':
+        return 'S/.';
+      default:
+        return currency;
+    }
+  }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');

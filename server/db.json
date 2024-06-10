@@ -209,21 +209,21 @@
       "garages": 1
     },
     {
-      "id": "f987",
-      "owner": "john",
-      "sale_or_rent": "Rent",
-      "type": "Apartment",
-      "district": "San Miguel",
-      "year": 2002,
-      "currency": "Sol",
-      "price": 2000,
-      "thumbnail": "",
-      "size": "",
+      "id": "2e11",
+      "owner": "Jose Calderon",
+      "sale_or_rent": "Sale",
+      "type": "House",
+      "district": "Santiago de Surco",
+      "yearbuilt": 2011,
+      "currency": "Dolar",
+      "price": 1000000,
+      "thumbnail": "https://firebasestorage.googleapis.com/v0/b/micasita2024-01.appspot.com/o/estates%2FPropiedad%20en%20Surco_undefined?alt=media&token=d2a0b114-1063-43bd-8fb0-a3e5a7d2475c",
+      "size": "200 m²",
       "bedrooms": 3,
-      "bathrooms": 2,
-      "garages": 1,
-      "title": "propiedad nueva",
-      "description": "123"
+      "bathrooms": 3,
+      "garages": 2,
+      "title": "Propiedad en Surco",
+      "description": "Propiedad en Surco - Urbanización casuarinas"
     }
   ],
   "user_payments": [

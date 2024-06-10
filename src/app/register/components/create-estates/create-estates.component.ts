@@ -63,7 +63,7 @@ export class CreateEstatesComponent implements OnInit{
         });
 
         this.featuresForm = this.formBuilder.group({
-            year: ['', Validators.required],
+            yearbuilt: ['', Validators.required],
             currency: ['', Validators.required],
             price: ['', Validators.required],
             thumbnail: ['', Validators.required],
@@ -104,6 +104,7 @@ export class CreateEstatesComponent implements OnInit{
     onSubmit(): void {
         // Combine the values from all form groups into a single object
         this.estate = {...this.personalDataForm.value, ...this.OperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
+        this.estate.size = `${this.estate.size} m²`;
         this.storageService.uploadImage('estates', this.estate.title + "_" + this.estate.id, this.estate.thumbnail).then((urlImage: string | null) => {
             if (urlImage) {
                 console.log("Url de la imagen : ", urlImage);

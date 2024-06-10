@@ -79,8 +79,8 @@
                             <label>Año de estreno</label>
                             <mat-form-field appearance="outline">
                                 <mat-label>Año</mat-label>
-                                <mat-select formControlName="year" required>
-                                    <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+                                <mat-select formControlName="yearbuilt" required>
+                                    <mat-option *ngFor="let yearbuilt of years" [value]="yearbuilt">{{yearbuilt}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -131,7 +131,7 @@
                             </mat-card>
                         </div>
                         <div class="input-group">
-                            <label>Tamaño en m2</label>
+                            <label>Tamaño en m²</label>
                             <mat-form-field appearance="outline">
                                 <mat-label>0</mat-label>
                                 <input matInput placeholder="" formControlName="size" type="number" required>

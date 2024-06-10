@@ -13,9 +13,9 @@
             <p><strong>District:</strong> {{ estate.district }}</p>
             <p><strong>Year: </strong> {{ estate.yearbuilt }}</p>
             <p><strong>Status: </strong>{{ estate.sale_or_rent }}</p>
-            <p><strong>Price: </strong> {{ estate.price }}</p>
+              <p><strong>Price: </strong> {{ getCurrencySymbol(estate.currency) }} {{ estate.price }}</p>
               <p><strong>Type:</strong> {{ estate.type }}</p>
-              <p><strong>Size:</strong> {{ estate.size }}</p>
+              <p><strong>Size:</strong> {{ estate.size }} </p>
               <p><strong>Bedrooms:</strong> {{ estate.bedrooms }}</p>
               <p><strong>Bathrooms:</strong> {{ estate.bathrooms }}</p>
               <p><strong>Garages:</strong> {{ estate.garages }}</p>
