@@ -12,7 +12,7 @@ export class PaymentService extends BaseService<PaymentEntity>{
 
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint = '/user_payments';
+    this.resourceEndpoint = '/api/v1/buys';
   }
 
   getAll(): Observable<PaymentEntity[]> {

@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  serverBasePath: "https://my-json-server.typicode.com/drkdevv1/db-server-demo",
+  serverBasePath: "http://localhost:8080",
   firebaseConfig: {
     apiKey: "AIzaSyCtZ3rB5QSBtjrOXhlF2LZzUrW_rDv4gg8",
     authDomain: "micasita2024-01.firebaseapp.com",

@@ -1,3 +1,5 @@
+import {EstateImg} from "../estate-img-entity/estate-img.entity";
+
 export class Estate {
   Id?: number;
   title: string;
@@ -14,6 +16,7 @@ export class Estate {
   bedrooms:number;
   bathrooms:number;
   garageSpace:number;
+  image: EstateImg;
 
   constructor() {
     this.title = "";
@@ -30,5 +33,6 @@ export class Estate {
     this.bedrooms=0;
     this.bathrooms=0;
     this.garageSpace=0;
+    this.image = new EstateImg();
   }
 }
