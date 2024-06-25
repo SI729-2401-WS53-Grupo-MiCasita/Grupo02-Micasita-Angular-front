@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  serverBasePath: "http://localhost:8080",
+  serverBasePath: "http://localhost:8070",
   firebaseConfig: {
     apiKey: "AIzaSyCtZ3rB5QSBtjrOXhlF2LZzUrW_rDv4gg8",
     authDomain: "micasita2024-01.firebaseapp.com",

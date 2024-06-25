@@ -8,7 +8,7 @@ import { BaseService } from "../../../shared/services/base.service";
   providedIn: 'root'
 })
 export class EstatesService extends BaseService<Estate> {
-  private baseUrl = 'http://localhost:8080'; // replace with your Spring Boot app URL
+  private baseUrl = 'http://localhost:8070'; // replace with your Spring Boot app URL
 
   constructor(http: HttpClient) {
     super(http);

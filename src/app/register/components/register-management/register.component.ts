@@ -17,34 +17,30 @@ import { RegisterService } from "../../services/register-service/register.servic
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  isRegisterMode: boolean = true;
   user: User = new User();
-  isRegisterMode = false;
 
-  constructor(private authService: RegisterService) {}
-
-  toggleMode() {
-    this.isRegisterMode =!this.isRegisterMode;
-  }
+  constructor(private registerService: RegisterService) {}
 
   onRegister() {
-    this.authService.register(this.user).subscribe({
-      next: () => {
-        console.log('Registro exitoso');
-      },
-      error: (error) => {
-        console.error('Error durante el registro:', error);
-      }
-    });
+    this.registerService.register(this.user).subscribe(
+        response => {
+          console.log('User registered successfully');
+        },
+        error => {
+          console.error('Error registering user', error);
+        }
+    );
   }
 
   onLogin() {
-    this.authService.login(this.user).subscribe({
-      next: () => {
-        console.log('Inicio de sesión exitoso');
-      },
-      error: (error) => {
-        console.error('Error durante el inicio de sesión:', error);
-      }
-    });
+    this.registerService.login(this.user).subscribe(
+        response => {
+          console.log('User logged in successfully');
+        },
+        error => {
+          console.error('Error logging in', error);
+        }
+    );
   }
 }

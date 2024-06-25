@@ -11,13 +11,13 @@ export class AuthService {
   public auth$ = this.authSubject.asObservable();
 
   constructor(private registerService: RegisterService) {
-    this.registerService.auth$.subscribe(isAuthenticated => {
+    this.registerService.auth$.subscribe((isAuthenticated: any) => {
       this.authSubject.next(isAuthenticated);
     });
   }
 
   login(user: User) {
-    this.registerService.login(user).subscribe(existingUser => {
+    this.registerService.login(user).subscribe((existingUser: any) => {
       if (existingUser) {
         this.authSubject.next(true);
       }
