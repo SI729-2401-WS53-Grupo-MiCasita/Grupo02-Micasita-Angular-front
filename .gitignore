@@ -66,4 +66,4 @@ node_modules
 .env
 
 # Ignore cache created with the Angular CLI.
-.angular/
+.angular/cache/
