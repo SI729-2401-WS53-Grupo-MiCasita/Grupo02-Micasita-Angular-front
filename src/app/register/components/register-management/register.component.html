@@ -6,21 +6,24 @@
                 <h1>Create Account</h1>
                 <span>or use your email for registration</span>
                 <input type="text" name="name" [(ngModel)]="user.name" placeholder="Name" required>
+                <input type="text" name="dni" [(ngModel)]="user.dni" placeholder="DNI" required>
                 <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
                 <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password" required>
-                <button (click)="onRegister()" [disabled]="!user.name || !user.email || !user.password">Sign Up</button>
+                <input type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone" required>
+                <input type="text" name="address" [(ngModel)]="user.address" placeholder="Address" required>
+                <button (click)="onRegister()" [disabled]="!user.name || !user.dni || !user.email || !user.password || !user.phone || !user.address">Sign Up</button>
             </form>
         </div>
 
         <!-- Formulario de inicio de sesión -->
-        <div class="form-container sign-in">
+        <div *ngIf="!isRegisterMode" class="form-container sign-in">
             <form>
                 <h1>Sign In</h1>
                 <span>or use your email and password</span>
-                <input type="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+                <input type="text" name="phone" [(ngModel)]="user.phone" placeholder="Phone" required>
                 <input type="password" name="password" [(ngModel)]="user.password" placeholder="Password" required>
                 <a href="#">→ Forget Your Password? ←</a>
-                <button (click)="onLogin()" [disabled]="!user.email || !user.password">Sign In</button>
+                <button (click)="onLogin()" [disabled]="!user.phone || !user.password">Sign In</button>
             </form>
         </div>
 

@@ -9,8 +9,8 @@ import {EstateImg} from "../../model/estate-img-entity/estate-img.entity";
   providedIn: 'root'
 })
 export class EstatesImageService extends BaseService<EstateImg> {
-  private baseUrl = 'http://localhost:8080';
-  private readonly API_URL = 'http://localhost:8080/api/v1/propertyImages/property/';// replace with your Spring Boot app URL
+  private baseUrl = 'http://localhost:8070';
+  private readonly API_URL = 'http://localhost:8070/api/v1/propertyImages/property/';// replace with your Spring Boot app URL
 
   constructor(http: HttpClient) {
     super(http);
