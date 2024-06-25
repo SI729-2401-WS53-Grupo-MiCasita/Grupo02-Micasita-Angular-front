@@ -16,6 +16,8 @@ import {MatOption} from "@angular/material/autocomplete";
 import {MatSelect} from "@angular/material/select";
 import {MatStep, MatStepLabel, MatStepper, MatStepperNext, MatStepperPrevious} from "@angular/material/stepper";
 import {StorageService} from "../../services/storage/storage.service";
+import {EstateImg} from "../../model/estate-img-entity/estate-img.entity";
+import {EstatesImageService} from "../../services/estates-service/estates-image.service";
 
 @Component({
     selector: 'app-create-estates',
@@ -47,7 +49,7 @@ export class CreateEstatesComponent implements OnInit{
     locationForm: FormGroup;
     featuresForm: FormGroup;
 
-    constructor(private estatesService: EstatesService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder, private storageService: StorageService) {
+    constructor(private estatesService: EstatesService,private estatesImageService: EstatesImageService, private router: Router, private toastr: ToastrService, private formBuilder: FormBuilder, private storageService: StorageService) {
         // Initialize the form groups
         this.personalDataForm = this.formBuilder.group({
             owner: ['', Validators.required]
@@ -66,7 +68,8 @@ export class CreateEstatesComponent implements OnInit{
             yearBuilt: ['', Validators.required],
             currency: ['', Validators.required],
             price: ['', Validators.required],
-            thumbnail: ['', Validators.required],
+            //thumbnail: ['', Validators.required],
+            image: ['', Validators.required],
             size: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
@@ -85,9 +88,9 @@ export class CreateEstatesComponent implements OnInit{
                 if (reader.result) {
                     this.imageSrc = reader.result as string;
                     if (this.featuresForm) {
-                        const thumbnailControl = this.featuresForm.get('thumbnail');
-                        if (thumbnailControl) {
-                            thumbnailControl.setValue(this.imageSrc); // Set the Data URL string to the form control
+                        const imageControl = this.featuresForm.get('image');
+                        if (imageControl) {
+                            imageControl.setValue({url: this.imageSrc}); // Set the Data URL string to the form control
                         }
                     }
                 }
@@ -105,18 +108,26 @@ export class CreateEstatesComponent implements OnInit{
         // Combine the values from all form groups into a single object
         this.estate = {...this.personalDataForm.value, ...this.OperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
         this.estate.size = `${this.estate.size} m²`;
-        this.storageService.uploadImage('estates', this.estate.title + "_" + this.estate.Id, this.estate.thumbnail).then((urlImage: string | null) => {
-            if (urlImage) {
-                console.log("Url de la imagen : ", urlImage);
-                this.estate.thumbnail = urlImage;
-            } else {
-                this.estate.thumbnail = 'gs://micasita2024-01.appspot.com';
-            }
-            this.estatesService.createEstate(this.estate).subscribe();
-            this.toastr.success('Tu propiedad se creó satisfactoriamente', 'Propiedad agregada', {
-                timeOut: 3000,
+
+        this.estatesService.createEstate(this.estate).subscribe((createdEstate: Estate) => {
+            this.storageService.uploadImage('estates', createdEstate.title + "_" + createdEstate.Id, this.estate.image.url).then((urlImage: string | null) => {
+                if (urlImage) {
+                    console.log("Url de la imagen : ", urlImage);
+                    this.estate.image.url = urlImage;
+
+                    // Crear una nueva entidad EstateImg y guardar la URL de la imagen
+                    let estateImg = new EstateImg();
+                    estateImg.url = urlImage;
+                    estateImg.propertyId = createdEstate.Id; // Ahora este es el ID correcto
+                    this.estatesImageService.createEstateImage(estateImg).subscribe();
+                } else {
+                    this.estate.image.url = 'gs://micasita2024-01.appspot.com';
+                }
+                this.toastr.success('Tu propiedad se creó satisfactoriamente', 'Propiedad agregada', {
+                    timeOut: 3000,
+                });
+                this.router.navigate(['/estates']);
             });
-            this.router.navigate(['/estates']);
         });
     }
     ngOnInit(): void {
@@ -125,8 +136,8 @@ export class CreateEstatesComponent implements OnInit{
             this.years.push(year);
         }
 
-        if (!this.estate.thumbnail) {
-            this.estate.thumbnail = 'default_thumbnail.png';
+        if (!this.estate.image.url) {
+            this.estate.image.url = 'default_thumbnail.png';
         }
     }
 

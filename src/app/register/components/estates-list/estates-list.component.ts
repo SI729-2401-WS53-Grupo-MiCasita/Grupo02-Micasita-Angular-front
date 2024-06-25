@@ -3,11 +3,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Estate } from "../../model/estate-entity/estate.entity";
-import { EstatesService } from '../../services/estates-service/estates.service';
 import {NgClass, NgForOf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
 import {RouterLink} from "@angular/router";
+
+import { Estate } from "../../model/estate-entity/estate.entity";
+import { EstatesService } from '../../services/estates-service/estates.service';
+import {EstatesImageService} from "../../services/estates-service/estates-image.service";
+import {EstateImg} from "../../model/estate-img-entity/estate-img.entity";
 
 @Component({
   imports: [MatFormFieldModule, MatInputModule, MatTableModule, MatCardModule, MatButton, NgForOf, RouterLink, NgClass],
@@ -22,12 +25,26 @@ export class EstatesListComponent implements OnInit{
   dataSource: any;
   selectedFilter: string = '';
 
-  constructor(private estatesService: EstatesService, private changeDetectorRef: ChangeDetectorRef) {}
+  constructor(
+      private estatesService: EstatesService,
+      private estatesImageService: EstatesImageService,
+      private changeDetectorRef: ChangeDetectorRef) {}
+
+  loadImages(): void {
+    for (let estate of this.estates) {
+      if (estate.Id !== undefined) {
+        this.estatesImageService.getEstateImagebyPropertyId(estate.Id).subscribe((estateImg: EstateImg) => {
+          estate.image = estateImg;
+        });
+      }
+    }
+  }
   ngOnInit(): void {
     this.estatesService.getEstates().subscribe((data: any) => {
       this.estates = data;
       this.filteredEstates = data;
       this.dataSource = new MatTableDataSource(this.estates);
+      this.loadImages();
     });
   }
   filterEstates(filterValue: string): void {

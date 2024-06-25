@@ -9,7 +9,7 @@
     <div class="container">
         <div class="cards-wrapper">
             <mat-card *ngFor="let estate of filteredEstates" class="estate-card">
-                <img mat-card-image [src]="estate.thumbnail" alt="Estate Image">
+                <img mat-card-image [src]="estate.image?.url" alt="Estate Image">
                 <mat-card-header class="estate-header">
                     <div mat-card-avatar class="card-avatar"></div>
                     <mat-card-title>{{ estate.title }}</mat-card-title>

@@ -10,7 +10,7 @@ export class Estate {
   description: string;
   currency: string;
   price: string;
-  thumbnail: string;
+  //thumbnail: string;
   type: string;
   size:string;
   bedrooms:number;
@@ -27,7 +27,7 @@ export class Estate {
     this.description = "";
     this.currency = "";
     this.price = "";
-    this.thumbnail = "";
+    //this.thumbnail = "";
     this.type= "";
     this.size="";
     this.bedrooms=0;

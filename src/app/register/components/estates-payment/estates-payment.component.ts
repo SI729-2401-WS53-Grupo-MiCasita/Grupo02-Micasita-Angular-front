@@ -71,6 +71,7 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy {
           console.error('Error al obtener el precio de la propiedad', error);
         }
       });
+    } else {
       console.error('El ID de la propiedad no es un número válido');
     }
   }
