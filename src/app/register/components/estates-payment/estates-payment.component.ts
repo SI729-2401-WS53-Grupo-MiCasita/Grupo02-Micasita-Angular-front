@@ -19,20 +19,21 @@ import {NgIf} from "@angular/common";
   standalone: true,
   imports: [RouterLink, FormsModule, MatFormField, MatInput, MatButton, MatCard, NgIf],
   templateUrl: './estates-payment.component.html',
-  styleUrl: './estates-payment.component.css'
+  styleUrls: ['./estates-payment.component.css']
 })
-export class EstatesPaymentComponent implements OnInit, OnDestroy{
-  paymentData:PaymentEntity = new PaymentEntity();
+export class EstatesPaymentComponent implements OnInit, OnDestroy {
+  paymentData: PaymentEntity = new PaymentEntity();
   private paymentSubscription: Subscription | undefined;
   estate: Estate | undefined;
   paymentAmount: string | undefined;
+  selectedPaymentMethod: string | undefined;  // Variable para almacenar el método de pago seleccionado
 
   constructor(
-    private registerService: PaymentService,
-    private router: Router,
-    private snackBar: MatSnackBar,
-    private route: ActivatedRoute,
-    private estatesService: EstatesService
+      private registerService: PaymentService,
+      private router: Router,
+      private snackBar: MatSnackBar,
+      private route: ActivatedRoute,
+      private estatesService: EstatesService
   ) {}
 
   submitForm(formData: any) {
@@ -44,6 +45,9 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy{
           horizontalPosition: 'center',
           verticalPosition: 'top',
         });
+
+        // Navegación después de que el formulario ha sido enviado
+        this.router.navigateByUrl(`/estates/voucher/${this.estate?.Id}`);
       },
       error: (error) => {
         this.snackBar.open('Error al implementar el Metodo de Pago: ' + error.message, 'Cerrar', {
@@ -56,8 +60,9 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy{
   }
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.estatesService.getEstateById(id).subscribe({
+    if (id && !isNaN(Number(id))) {
+      const numericId = Number(id);
+      this.estatesService.getEstateById(numericId).subscribe({
         next: data => {
           this.estate = data;
           this.paymentAmount = this.estate?.price;
@@ -66,6 +71,8 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy{
           console.error('Error al obtener el precio de la propiedad', error);
         }
       });
+    } else {
+      console.error('El ID de la propiedad no es un número válido');
     }
   }
 
@@ -73,5 +80,10 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy{
     if (this.paymentSubscription) {
       this.paymentSubscription.unsubscribe();
     }
+  }
+
+  // Función para seleccionar el método de pago
+  selectPaymentMethod(method: string) {
+    this.selectedPaymentMethod = method;
   }
 }

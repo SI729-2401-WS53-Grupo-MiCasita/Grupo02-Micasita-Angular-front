@@ -45,7 +45,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+node_modules
 
 # Optional npm cache directory
 .npm
@@ -65,4 +65,5 @@ node_modules/
 # dotenv environment variables file
 .env
 
-/.angular/
+# Ignore cache created with the Angular CLI.
+.angular/cache/

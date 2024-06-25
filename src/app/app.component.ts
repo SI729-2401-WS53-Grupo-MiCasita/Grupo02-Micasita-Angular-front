@@ -1,23 +1,60 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { RouterLink } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { EstatesListComponent} from "./register/components/estates-list/estates-list.component";
-import {NgClass, NgForOf, NgStyle} from "@angular/common";
+import {Router, NavigationEnd, RouterOutlet, RouterLink} from '@angular/router';
+import { filter, tap } from 'rxjs/operators';
+import { AuthService } from './register/services/authentication/authentication.service';
+import { MatToolbar } from '@angular/material/toolbar';
+import {MatButton, MatIconButton} from '@angular/material/button';
+import { NgIf } from '@angular/common';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
+import {MatIcon} from "@angular/material/icon";
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, RouterLink, MatToolbarModule, MatButtonModule, MatIconModule, EstatesListComponent, NgForOf, NgStyle, NgClass],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [
+    MatToolbar,
+    RouterOutlet,
+    MatButton,
+    NgIf,
+    RouterLink,
+    MatMenu,
+    MatIcon,
+    MatMenuTrigger,
+    MatIconButton,
+    MatMenuItem,
+    MatDialogModule
+  ],
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'daos-ws53-micasita';
-  options = [
-    {path: '/estates',title: 'Estates'},
-    {path: '/register',title: 'Register'},
-  ]
+  isLoggedIn = false;
+  showButtons = false;
+  title: string = 'daos-ws53-micasita';
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.router.events.pipe(
+        filter(event => event instanceof NavigationEnd),
+        tap(() => this.checkAuthenticationStatus())
+    ).subscribe();
+  }
+
+  checkAuthenticationStatus() {
+    this.authService.auth$.subscribe(authenticated => {
+      this.isLoggedIn = authenticated;
+      const currentUrl = this.router.url;
+      const is404 = currentUrl === '/path-to-your-404' || currentUrl === '/register';
+
+      // showButtons será verdadero si el usuario está autenticado y no está en la página 404
+      this.showButtons = authenticated && !is404;
+    });
+  }
+  navigateToEstates() {
+    this.router.navigate(['/estates']);
+  }
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/register']);
+  }
 }

@@ -1,29 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {catchError, Observable, retry} from 'rxjs';
-import { Estate} from "../../model/estate-entity/estate.entity";
-import {BaseService} from "../../../shared/services/base.service";
+import { catchError, Observable, retry } from 'rxjs';
+import { Estate } from "../../model/estate-entity/estate.entity";
+import { Reservation } from "../../model/reservation-entity/reservation.entity";
+import { BaseService } from "../../../shared/services/base.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstatesService extends BaseService<Estate>{
-  private baseUrl = 'https://my-json-server.typicode.com/drkdevv1/db-server-demo'
-
+export class EstatesService extends BaseService<Estate> {
+  private baseUrl = 'http://localhost:8070'; // replace with your Spring Boot app URL
 
   constructor(http: HttpClient) {
     super(http);
-    this.resourceEndpoint = '/estates';
-  }
-  getEstates(): Observable<any> {
-    return this.http.get(`${this.baseUrl}/estates`);
+    this.resourceEndpoint = '/api/v1/properties'; // replace with your Spring Boot app endpoint
   }
 
-  getEstateById(id: string): Observable<Estate> {
-    return this.http.get<Estate>(`${this.baseUrl}/estates/${id}`);
+  getEstates(): Observable<any> {
+    return this.http.get(`${this.baseUrl}${this.resourceEndpoint}`);
   }
+
+  getEstateById(id: number): Observable<Estate> {
+    return this.http.get<Estate>(`${this.baseUrl}${this.resourceEndpoint}/${id}`);
+  }
+
+  createEstate(estate: Estate): Observable<Estate> {
+    return this.http.post<Estate>(`${this.baseUrl}${this.resourceEndpoint}`, estate);
+  }
+
   getAll(): Observable<Estate[]> {
     return this.http.get<Estate[]>(this.resourcePath(), this.httpOptions)
-      .pipe(retry(2), catchError(this.handleError));
+        .pipe(retry(2), catchError(this.handleError));
+  }
+
+  createReservation(reservation: Reservation): Observable<Reservation> {
+    return this.http.post<Reservation>(`${this.baseUrl}/api/v1/reservations`, reservation);
   }
 }

@@ -86,10 +86,15 @@
       "owner": "Juan Perez",
       "sale_or_rent": "Sale",
       "district": "Miraflores",
-      "year": "2020",
+      "yearbuilt": "2020",
       "description": "Beautiful apartment with ocean view",
       "price": "$500,000",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/27/03/98/1200x1200/1454116052.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/27/03/98/1200x1200/1454116052.jpg?isFirstImage=true",
+      "type": "apartment",
+      "size": "120 m²",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "garages": 1
     },
     {
       "id": "2",
@@ -97,10 +102,15 @@
       "owner": "Maria Lopez",
       "sale_or_rent": "Rent",
       "district": "San Isidro",
-      "year": "2019",
+      "yearbuilt": "2019",
       "description": "Cozy apartment near the financial district",
       "price": "$1,200",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/13/34/37/1200x1200/1450584017.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/13/34/37/1200x1200/1450584017.jpg?isFirstImage=true",
+      "type": "apartment",
+      "size": "95 m²",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "garages": 1
     },
     {
       "id": "3",
@@ -108,10 +118,15 @@
       "owner": "Pedro Ramirez",
       "sale_or_rent": "Sale",
       "district": "Surco",
-      "year": "2018",
+      "yearbuilt": "2018",
       "description": "Spacious house with a garden",
       "price": "$750,000",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/08/25/63/1200x1200/1449110118.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/08/25/63/1200x1200/1449110118.jpg?isFirstImage=true",
+      "type": "house",
+      "size": "250 m²",
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "garages": 2
     },
     {
       "id": "4",
@@ -119,10 +134,15 @@
       "owner": "Ana Torres",
       "sale_or_rent": "Rent",
       "district": "Barranco",
-      "year": "2021",
+      "yearbuilt": "2021",
       "description": "Modern apartment near the art galleries",
       "price": "$1,500",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/01/01/95/1200x1200/1447297156.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/01/01/95/1200x1200/1447297156.jpg?isFirstImage=true",
+      "type": "apartment",
+      "size": "110 m²",
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "garages": 1
     },
     {
       "id": "5",
@@ -130,10 +150,15 @@
       "owner": "Luisa Fernandez",
       "sale_or_rent": "Sale",
       "district": "San Borja",
-      "year": "2017",
+      "yearbuilt": "2017",
       "description": "Traditional house with a swimming pool",
       "price": "$900,000",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/31/57/78/1200x1200/1455341275.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/31/57/78/1200x1200/1455341275.jpg?isFirstImage=true",
+      "type": "house",
+      "size": "300 m²",
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "garages": 2
     },
     {
       "id": "6",
@@ -141,10 +166,15 @@
       "owner": "Carlos Rodriguez",
       "sale_or_rent": "Rent",
       "district": "Magdalena",
-      "year": "2019",
+      "yearbuilt": "2019",
       "description": "Furnished apartment with a view of the park",
       "price": "$1,000",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/34/90/79/1200x1200/1456961751.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/34/90/79/1200x1200/1456961751.jpg?isFirstImage=true",
+      "type": "apartment",
+      "size": "85 m²",
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "garages": 1
     },
     {
       "id": "7",
@@ -152,10 +182,15 @@
       "owner": "Sofia Herrera",
       "sale_or_rent": "Sale",
       "district": "La Molina",
-      "year": "2016",
+      "yearbuilt": "2016",
       "description": "Luxurious house with a tennis court",
       "price": "$1,800,000",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/41/96/20/46/1200x1200/1142306139.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/41/96/20/46/1200x1200/1142306139.jpg?isFirstImage=true",
+      "type": "house",
+      "size": "400 m²",
+      "bedrooms": 6,
+      "bathrooms": 5,
+      "garages": 3
     },
     {
       "id": "8",
@@ -163,10 +198,32 @@
       "owner": "Raul Castro",
       "sale_or_rent": "Rent",
       "district": "Jesus Maria",
-      "year": "2020",
+      "yearbuilt": "2020",
       "description": "Renovated apartment near the university",
       "price": "$1,300",
-      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/40/34/34/1200x1200/1458082809.jpg?isFirstImage=true"
+      "thumbnail": "https://img10.naventcdn.com/avisos/resize/111/01/43/40/34/34/1200x1200/1458082809.jpg?isFirstImage=true",
+      "type": "apartment",
+      "size": "100 m²",
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "garages": 1
+    },
+    {
+      "id": "2e11",
+      "owner": "Jose Calderon",
+      "sale_or_rent": "Sale",
+      "type": "House",
+      "district": "Santiago de Surco",
+      "yearbuilt": 2011,
+      "currency": "Dolar",
+      "price": 1000000,
+      "thumbnail": "https://firebasestorage.googleapis.com/v0/b/micasita2024-01.appspot.com/o/estates%2FPropiedad%20en%20Surco_undefined?alt=media&token=d2a0b114-1063-43bd-8fb0-a3e5a7d2475c",
+      "size": "200 m²",
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "garages": 2,
+      "title": "Propiedad en Surco",
+      "description": "Propiedad en Surco - Urbanización casuarinas"
     }
   ],
   "user_payments": [
