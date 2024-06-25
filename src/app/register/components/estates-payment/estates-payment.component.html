@@ -49,7 +49,7 @@
                 <label>Monto</label>
                 <input matInput placeholder="" name="amount" [(ngModel)]="paymentAmount" required readonly>
             </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid" [routerLink]="['/estates/voucher', estate?.id]">Pagar</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid" [routerLink]="['/estates/voucher', estate?.Id]">Pagar</button>
         </form>
     </div>
 </div>

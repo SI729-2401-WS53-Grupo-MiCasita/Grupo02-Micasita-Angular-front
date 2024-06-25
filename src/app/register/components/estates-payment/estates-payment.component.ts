@@ -59,7 +59,8 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
-      this.estatesService.getEstateById(id).subscribe({
+      const numericId = Number(id);
+      this.estatesService.getEstateById(numericId).subscribe({
         next: data => {
           this.estate = data;
           this.paymentAmount = this.estate?.price;

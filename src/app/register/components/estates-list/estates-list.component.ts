@@ -38,7 +38,7 @@ export class EstatesListComponent implements OnInit{
     } else {
       // Otherwise, apply the new filter
       this.selectedFilter = filterValue;
-      this.filteredEstates = this.estates.filter(estate => estate.sale_or_rent === filterValue);
+      this.filteredEstates = this.estates.filter(estate => estate.status === filterValue);
     }
     this.changeDetectorRef.markForCheck();
   }

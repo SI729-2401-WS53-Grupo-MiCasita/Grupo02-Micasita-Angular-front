@@ -1,10 +1,10 @@
 export class Estate {
-  id?: number;
+  Id?: number;
   title: string;
   owner: string;
-  sale_or_rent: string;
-  district: string;
-  yearbuilt: string;
+  status: string;
+  location: string;
+  yearBuilt: string;
   description: string;
   currency: string;
   price: string;
@@ -13,14 +13,14 @@ export class Estate {
   size:string;
   bedrooms:number;
   bathrooms:number;
-  garages:number;
+  garageSpace:number;
 
   constructor() {
     this.title = "";
     this.owner = "";
-    this.sale_or_rent = "";
-    this.district = "";
-    this.yearbuilt = "";
+    this.status = "";
+    this.location = "";
+    this.yearBuilt = "";
     this.description = "";
     this.currency = "";
     this.price = "";
@@ -29,6 +29,6 @@ export class Estate {
     this.size="";
     this.bedrooms=0;
     this.bathrooms=0;
-    this.garages=0;
+    this.garageSpace=0;
   }
 }

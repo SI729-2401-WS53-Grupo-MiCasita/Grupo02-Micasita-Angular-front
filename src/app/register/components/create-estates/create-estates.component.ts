@@ -54,23 +54,23 @@ export class CreateEstatesComponent implements OnInit{
         });
 
         this.OperationTypeForm = this.formBuilder.group({
-            sale_or_rent: ['', Validators.required],
+            status: ['', Validators.required],
             type: ['', Validators.required]
         });
 
         this.locationForm = this.formBuilder.group({
-            district: ['', Validators.required]
+            location: ['', Validators.required]
         });
 
         this.featuresForm = this.formBuilder.group({
-            yearbuilt: ['', Validators.required],
+            yearBuilt: ['', Validators.required],
             currency: ['', Validators.required],
             price: ['', Validators.required],
             thumbnail: ['', Validators.required],
             size: ['', Validators.required],
             bedrooms: ['', Validators.required],
             bathrooms: ['', Validators.required],
-            garages: ['', Validators.required],
+            garageSpace: ['', Validators.required],
             title: ['', Validators.required],
             description: ['', Validators.required]
         });
@@ -105,7 +105,7 @@ export class CreateEstatesComponent implements OnInit{
         // Combine the values from all form groups into a single object
         this.estate = {...this.personalDataForm.value, ...this.OperationTypeForm.value, ...this.locationForm.value, ...this.featuresForm.value};
         this.estate.size = `${this.estate.size} m²`;
-        this.storageService.uploadImage('estates', this.estate.title + "_" + this.estate.id, this.estate.thumbnail).then((urlImage: string | null) => {
+        this.storageService.uploadImage('estates', this.estate.title + "_" + this.estate.Id, this.estate.thumbnail).then((urlImage: string | null) => {
             if (urlImage) {
                 console.log("Url de la imagen : ", urlImage);
                 this.estate.thumbnail = urlImage;
