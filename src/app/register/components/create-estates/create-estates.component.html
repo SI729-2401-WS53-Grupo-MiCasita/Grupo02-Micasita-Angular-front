@@ -22,11 +22,11 @@
                         <ng-template matStepLabel>Operación y tipo de inmueble</ng-template>
                         <div class="input-group operation">
                             <label>Tipo de operación</label>
-                            <mat-radio-group formControlName="sale_or_rent" aria-label="Select an option">
+                            <mat-radio-group formControlName="status" aria-label="Select an option">
                                 <mat-radio-button id="venta" value="Sale" required>Venta</mat-radio-button>
                                 <mat-radio-button id="alquiler" value="Rent" required>Alquiler</mat-radio-button>
                             </mat-radio-group>
-                            <mat-error *ngIf="OperationTypeForm.get('sale_or_rent')?.invalid">
+                            <mat-error *ngIf="OperationTypeForm.get('status')?.invalid">
                                 Por favor, selecciona una opción.
                             </mat-error>
                         </div>
@@ -53,7 +53,7 @@
                             <label>Donde está ubicado tu inmueble?</label>
                             <mat-form-field appearance="outline">
                                 <mat-label>Distrito</mat-label>
-                                <mat-select formControlName="district" required>
+                                <mat-select formControlName="location" required>
                                     <mat-option value="Miraflores" >Miraflores</mat-option>
                                     <mat-option value="San Isidro">San Isidro</mat-option>
                                     <mat-option value="Barranco">Barranco</mat-option>
@@ -79,8 +79,8 @@
                             <label>Año de estreno</label>
                             <mat-form-field appearance="outline">
                                 <mat-label>Año</mat-label>
-                                <mat-select formControlName="year" required>
-                                    <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+                                <mat-select formControlName="yearBuilt" required>
+                                    <mat-option *ngFor="let yearBuilt of years" [value]="yearBuilt">{{yearBuilt}}</mat-option>
                                 </mat-select>
                             </mat-form-field>
                         </div>
@@ -130,16 +130,8 @@
                                 </mat-card-content>
                             </mat-card>
                         </div>
-
                         <div class="input-group">
-                            <label>Tamaño en m2</label>
-                            <mat-form-field appearance="outline">
-                                <mat-label>0</mat-label>
-                                <input matInput placeholder="" formControlName="size" type="number" required>
-                            </mat-form-field>
-                        </div>
-                        <div class="input-group">
-                            <label>Tamaño en m2</label>
+                            <label>Tamaño en m²</label>
                             <mat-form-field appearance="outline">
                                 <mat-label>0</mat-label>
                                 <input matInput placeholder="" formControlName="size" type="number" required>
@@ -163,7 +155,7 @@
                             <label>Garajes</label>
                             <mat-form-field appearance="outline">
                                 <mat-label>0</mat-label>
-                                <input matInput placeholder="" formControlName="garages" type="number" required>
+                                <input matInput placeholder="" formControlName="garageSpace" type="number" required>
                             </mat-form-field>
                         </div>
                         <h2>Describe el inmueble</h2>

@@ -27,16 +27,18 @@ export class EstatesVoucherComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.estatesService.getEstateById(id).subscribe({
+    if (id && !isNaN(Number(id))) {
+      const numericId = Number(id);
+      this.estatesService.getEstateById(numericId).subscribe({
         next: data => {
           this.estate = data;
-          this.paymentAmountVoucher = this.estate?.price;
         },
         error: error => {
-          console.error('Error al obtener el precio de la propiedad', error);
+          console.error('Error al obtener la propiedad', error);
         }
       });
+    } else {
+      console.error('El ID de la propiedad no es un número válido');
     }
   }
 }

@@ -45,6 +45,9 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy {
           horizontalPosition: 'center',
           verticalPosition: 'top',
         });
+
+        // Navegación después de que el formulario ha sido enviado
+        this.router.navigateByUrl(`/estates/voucher/${this.estate?.Id}`);
       },
       error: (error) => {
         this.snackBar.open('Error al implementar el Metodo de Pago: ' + error.message, 'Cerrar', {
@@ -55,11 +58,11 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy {
       }
     });
   }
-
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.estatesService.getEstateById(id).subscribe({
+    if (id && !isNaN(Number(id))) {
+      const numericId = Number(id);
+      this.estatesService.getEstateById(numericId).subscribe({
         next: data => {
           this.estate = data;
           this.paymentAmount = this.estate?.price;
@@ -68,6 +71,8 @@ export class EstatesPaymentComponent implements OnInit, OnDestroy {
           console.error('Error al obtener el precio de la propiedad', error);
         }
       });
+    } else {
+      console.error('El ID de la propiedad no es un número válido');
     }
   }
 

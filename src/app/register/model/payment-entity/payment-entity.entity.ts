@@ -1,16 +1,18 @@
 export class PaymentEntity {
   id?: number;
-  owner_name: string;
-  dni: number | null;
-  phone_number: string;
+  name: string;
+  dni: string;
+  phoneNumber: string;
   email: string;
-  amount: number  ;
+  buyAmount: number;
+  idProperty: number;
 
   constructor() {
-    this.owner_name = "";
-    this.dni = null;
-    this.phone_number = "";
+    this.name = "";
+    this.dni = "";
+    this.phoneNumber = "";
     this.email="";
-    this.amount=0;
+    this.buyAmount=0;
+    this.idProperty = 0;
   }
 }
