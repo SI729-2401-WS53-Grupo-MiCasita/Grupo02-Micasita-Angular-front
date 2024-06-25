@@ -47,7 +47,7 @@
             </mat-form-field>
             <mat-form-field class="form--field" style="width: 100%; margin-bottom: 0;">
                 <label>Monto</label>
-                <input matInput placeholder="" name="amount" [(ngModel)]="paymentAmount" required readonly>
+                <input matInput placeholder="" name="amount" [(ngModel)]="paymentData.buyAmount" required>
             </mat-form-field>
             <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.form.valid">Pagar</button>
         </form>
